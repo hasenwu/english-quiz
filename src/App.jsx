@@ -314,6 +314,23 @@ function App() {
           </div>
           
           <div style={{ margin: '10px' }}>
+            {isDailyGoalCompleted && showShareButton && (
+              <button 
+                style={{
+                  margin: '10px',
+                  padding: '10px 20px',
+                  fontSize: '16px',
+                  borderRadius: '8px',
+                  border: '1px solid #ddd',
+                  backgroundColor: '#2196F3',
+                  color: '#fff',
+                  cursor: 'pointer'
+                }}
+                onClick={shareLearningResult}
+              >
+                分享学习成果
+              </button>
+            )}
             <button 
               style={{
                 margin: '10px',
@@ -468,45 +485,7 @@ function App() {
             </div>
           )}
           
-          {isDailyGoalCompleted && !isCompleted ? (
-            <div style={{ textAlign: 'center', padding: '40px' }}>
-              <h2>🎉 恭喜！今日计划已完成！</h2>
-              <p>已完成：{completedToday} 个单词</p>
-              <p>今日得分：{totalPoints} 分</p>
-              {showShareButton && (
-                <button 
-                  style={{
-                    margin: '20px',
-                    padding: '15px 30px',
-                    fontSize: '18px',
-                    borderRadius: '8px',
-                    border: '1px solid #ddd',
-                    backgroundColor: '#2196F3',
-                    color: '#fff',
-                    cursor: 'pointer'
-                  }}
-                  onClick={shareLearningResult}
-                >
-                  分享学习成果
-                </button>
-              )}
-              <button 
-                style={{
-                  margin: '20px',
-                  padding: '15px 30px',
-                  fontSize: '18px',
-                  borderRadius: '8px',
-                  border: '1px solid #ddd',
-                  backgroundColor: '#4CAF50',
-                  color: '#fff',
-                  cursor: 'pointer'
-                }}
-                onClick={handleReset}
-              >
-                再来一次
-              </button>
-            </div>
-          ) : isCompleted ? (
+          {isCompleted ? (
             <div style={{ textAlign: 'center', padding: '40px' }}>
               <h2>🎉 恭喜！今日单词已掌握！</h2>
               <p>正确：{correctCount} 个</p>
