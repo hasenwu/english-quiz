@@ -271,7 +271,6 @@ function App() {
         </div>
       ) : (
         <>
-          <h1 style={{ fontFamily: 'SimHei, sans-serif', color: '#000', fontWeight: 'bold' }}>王舒龙该记单词了！</h1>
           
           {/* 进度条和积分显示 */}
           <div style={{ margin: '20px auto', maxWidth: '600px' }}>
