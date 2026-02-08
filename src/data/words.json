@@ -1,0 +1,1438 @@
+[
+  {
+    "word": "name",
+    "meaning": "名字;名称"
+  },
+  {
+    "word": "hello",
+    "meaning": "你好;喂"
+  },
+  {
+    "word": "is",
+    "meaning": "是"
+  },
+  {
+    "word": "how",
+    "meaning": "怎样;如何"
+  },
+  {
+    "word": "nice",
+    "meaning": "令人愉快的;宜人的"
+  },
+  {
+    "word": "meet",
+    "meaning": "遇见;相逢"
+  },
+  {
+    "word": "so",
+    "meaning": "用来引出评论或问题；所以否定句和疑问句；做；干"
+  },
+  {
+    "word": "you",
+    "meaning": "你;您;你们"
+  },
+  {
+    "word": "people",
+    "meaning": "人;人们"
+  },
+  {
+    "word": "your",
+    "meaning": "你的;您的"
+  },
+  {
+    "word": "hi",
+    "meaning": "嗨;喂"
+  },
+  {
+    "word": "good",
+    "meaning": "好的"
+  },
+  {
+    "word": "too",
+    "meaning": "也;又;太"
+  },
+  {
+    "word": "morning",
+    "meaning": "早晨;上午"
+  },
+  {
+    "word": "and",
+    "meaning": "和;又"
+  },
+  {
+    "word": "are",
+    "meaning": "是"
+  },
+  {
+    "word": "class",
+    "meaning": "班级;课"
+  },
+  {
+    "word": "sit",
+    "meaning": "坐"
+  },
+  {
+    "word": "down",
+    "meaning": "下;向下"
+  },
+  {
+    "word": "say",
+    "meaning": "说"
+  },
+  {
+    "word": "to",
+    "meaning": "常用于原形动词之前，"
+  },
+  {
+    "word": "the",
+    "meaning": "指已提到或"
+  },
+  {
+    "word": "fine",
+    "meaning": "健康的;美好的"
+  },
+  {
+    "word": "great",
+    "meaning": "美妙的;伟大的"
+  },
+  {
+    "word": "i",
+    "meaning": "我"
+  },
+  {
+    "word": "that",
+    "meaning": "那;那个"
+  },
+  {
+    "word": "am",
+    "meaning": "是"
+  },
+  {
+    "word": "let",
+    "meaning": "允许;让"
+  },
+  {
+    "word": "thank",
+    "meaning": "感谢;谢谢"
+  },
+  {
+    "word": "now",
+    "meaning": "现在;目前"
+  },
+  {
+    "word": "go",
+    "meaning": "去;走"
+  },
+  {
+    "word": "my",
+    "meaning": "我的"
+  },
+  {
+    "word": "it",
+    "meaning": "它"
+  },
+  {
+    "word": "desk",
+    "meaning": "书桌"
+  },
+  {
+    "word": "time",
+    "meaning": "时间;次"
+  },
+  {
+    "word": "chair",
+    "meaning": "椅子"
+  },
+  {
+    "word": "for",
+    "meaning": "为了;给;对"
+  },
+  {
+    "word": "book",
+    "meaning": "书"
+  },
+  {
+    "word": "box",
+    "meaning": "箱;盒;方框"
+  },
+  {
+    "word": "sock",
+    "meaning": "短袜"
+  },
+  {
+    "word": "some",
+    "meaning": "一些;某些"
+  },
+  {
+    "word": "tidy",
+    "meaning": "整洁的;井井有条的"
+  },
+  {
+    "word": "in",
+    "meaning": "在里;表示某事完成"
+  },
+  {
+    "word": "pair",
+    "meaning": "一双;一对"
+  },
+  {
+    "word": "of",
+    "meaning": "属于(某人)"
+  },
+  {
+    "word": "schoolbag",
+    "meaning": "书包"
+  },
+  {
+    "word": "on",
+    "meaning": "在...上"
+  },
+  {
+    "word": "under",
+    "meaning": "在.下"
+  },
+  {
+    "word": "ruler",
+    "meaning": "尺;直尺"
+  },
+  {
+    "word": "pencil",
+    "meaning": "铅笔"
+  },
+  {
+    "word": "not",
+    "meaning": "不;没有"
+  },
+  {
+    "word": "find",
+    "meaning": "找到;发现"
+  },
+  {
+    "word": "new",
+    "meaning": "新的;刚出现的"
+  },
+  {
+    "word": "no",
+    "meaning": "不;不要"
+  },
+  {
+    "word": "here",
+    "meaning": "在这里"
+  },
+  {
+    "word": "room",
+    "meaning": "房间"
+  },
+  {
+    "word": "ok",
+    "meaning": "好;行"
+  },
+  {
+    "word": "sorry",
+    "meaning": "抱歉的;惋惜的"
+  },
+  {
+    "word": "dad",
+    "meaning": "爸爸"
+  },
+  {
+    "word": "see",
+    "meaning": "看见"
+  },
+  {
+    "word": "they",
+    "meaning": "他(她,它)们"
+  },
+  {
+    "word": "wait",
+    "meaning": "等待;等候"
+  },
+  {
+    "word": "minute",
+    "meaning": "分;分钟"
+  },
+  {
+    "word": "shoe",
+    "meaning": "鞋"
+  },
+  {
+    "word": "head",
+    "meaning": "头"
+  },
+  {
+    "word": "where",
+    "meaning": "在哪里;到哪里"
+  },
+  {
+    "word": "welcome",
+    "meaning": "受欢迎的"
+  },
+  {
+    "word": "put",
+    "meaning": "放"
+  },
+  {
+    "word": "bed",
+    "meaning": "床"
+  },
+  {
+    "word": "her",
+    "meaning": "她的"
+  },
+  {
+    "word": "nose",
+    "meaning": "鼻子"
+  },
+  {
+    "word": "grass",
+    "meaning": "草"
+  },
+  {
+    "word": "kind",
+    "meaning": "种类"
+  },
+  {
+    "word": "cat",
+    "meaning": "猫"
+  },
+  {
+    "word": "these",
+    "meaning": "这些"
+  },
+  {
+    "word": "he",
+    "meaning": "他"
+  },
+  {
+    "word": "plant",
+    "meaning": "植物"
+  },
+  {
+    "word": "pig",
+    "meaning": "猪"
+  },
+  {
+    "word": "baby",
+    "meaning": "动物幼崽;婴儿"
+  },
+  {
+    "word": "there",
+    "meaning": "在那里"
+  },
+  {
+    "word": "chicken",
+    "meaning": "鸡;鸡肉"
+  },
+  {
+    "word": "behind",
+    "meaning": "在..的后面"
+  },
+  {
+    "word": "dog",
+    "meaning": "狗"
+  },
+  {
+    "word": "home",
+    "meaning": "家"
+  },
+  {
+    "word": "rabbit",
+    "meaning": "兔子"
+  },
+  {
+    "word": "beautiful",
+    "meaning": "美丽的"
+  },
+  {
+    "word": "like",
+    "meaning": "喜欢"
+  },
+  {
+    "word": "flower",
+    "meaning": "花"
+  },
+  {
+    "word": "his",
+    "meaning": "他的"
+  },
+  {
+    "word": "apple",
+    "meaning": "苹果"
+  },
+  {
+    "word": "at",
+    "meaning": "向;朝;在(某处,"
+  },
+  {
+    "word": "tree",
+    "meaning": "树"
+  },
+  {
+    "word": "this",
+    "meaning": "这;这个"
+  },
+  {
+    "word": "those",
+    "meaning": "那些"
+  },
+  {
+    "word": "animal",
+    "meaning": "动物"
+  },
+  {
+    "word": "we",
+    "meaning": "我们"
+  },
+  {
+    "word": "duck",
+    "meaning": "鸭子"
+  },
+  {
+    "word": "make",
+    "meaning": "使成为;制造"
+  },
+  {
+    "word": "friend",
+    "meaning": "朋友"
+  },
+  {
+    "word": "get",
+    "meaning": "去取(或带来);得到"
+  },
+  {
+    "word": "know",
+    "meaning": "知道"
+  },
+  {
+    "word": "from",
+    "meaning": "从.来"
+  },
+  {
+    "word": "farm",
+    "meaning": "农场"
+  },
+  {
+    "word": "old",
+    "meaning": "老的;旧的"
+  },
+  {
+    "word": "cow",
+    "meaning": "奶牛"
+  },
+  {
+    "word": "last",
+    "meaning": "最后的;末尾的"
+  },
+  {
+    "word": "small",
+    "meaning": "小的"
+  },
+  {
+    "word": "year",
+    "meaning": "年"
+  },
+  {
+    "word": "lake",
+    "meaning": "湖"
+  },
+  {
+    "word": "yes",
+    "meaning": "是的;可以"
+  },
+  {
+    "word": "house",
+    "meaning": "房子"
+  },
+  {
+    "word": "horse",
+    "meaning": "马"
+  },
+  {
+    "word": "our",
+    "meaning": "我们的"
+  },
+  {
+    "word": "big",
+    "meaning": "大的"
+  },
+  {
+    "word": "english",
+    "meaning": "英语;英格兰人"
+  },
+  {
+    "word": "look",
+    "meaning": "看"
+  },
+  {
+    "word": "uncle",
+    "meaning": "舅父;叔父;伯父"
+  },
+  {
+    "word": "teacher",
+    "meaning": "教师"
+  },
+  {
+    "word": "which",
+    "meaning": "哪一个;哪一些"
+  },
+  {
+    "word": "speak",
+    "meaning": "说(某种语言);说话"
+  },
+  {
+    "word": "who",
+    "meaning": "谁;什么人"
+  },
+  {
+    "word": "sport",
+    "meaning": "运动"
+  },
+  {
+    "word": "job",
+    "meaning": "工作"
+  },
+  {
+    "word": "often",
+    "meaning": "时常;常常"
+  },
+  {
+    "word": "student",
+    "meaning": "学生"
+  },
+  {
+    "word": "play",
+    "meaning": "玩"
+  },
+  {
+    "word": "age",
+    "meaning": "年龄"
+  },
+  {
+    "word": "she",
+    "meaning": "她"
+  },
+  {
+    "word": "want",
+    "meaning": "想要"
+  },
+  {
+    "word": "be",
+    "meaning": "是"
+  },
+  {
+    "word": "place",
+    "meaning": "地方;地点"
+  },
+  {
+    "word": "pet",
+    "meaning": "宠物"
+  },
+  {
+    "word": "music",
+    "meaning": "音乐"
+  },
+  {
+    "word": "very",
+    "meaning": "很;非常"
+  },
+  {
+    "word": "cute",
+    "meaning": "可爱的"
+  },
+  {
+    "word": "write",
+    "meaning": "写"
+  },
+  {
+    "word": "much",
+    "meaning": "非常;十分"
+  },
+  {
+    "word": "school",
+    "meaning": "学校"
+  },
+  {
+    "word": "or",
+    "meaning": "或者;也不(用于否定句)"
+  },
+  {
+    "word": "china",
+    "meaning": "中国"
+  },
+  {
+    "word": "mother",
+    "meaning": "母亲"
+  },
+  {
+    "word": "panda",
+    "meaning": "熊猫"
+  },
+  {
+    "word": "hot",
+    "meaning": "热的;炎热的"
+  },
+  {
+    "word": "also",
+    "meaning": "也;而且"
+  },
+  {
+    "word": "sister",
+    "meaning": "姐;妹"
+  },
+  {
+    "word": "live",
+    "meaning": "居住;生活"
+  },
+  {
+    "word": "brother",
+    "meaning": "兄;弟"
+  },
+  {
+    "word": "with",
+    "meaning": "和在一起"
+  },
+  {
+    "word": "cousin",
+    "meaning": "堂兄(弟,姊,妹);  带有；使用"
+  },
+  {
+    "word": "parent",
+    "meaning": "父(母)亲"
+  },
+  {
+    "word": "aunt",
+    "meaning": "姑(姨,伯,婶,舅)母"
+  },
+  {
+    "word": "chinese",
+    "meaning": "中国的"
+  },
+  {
+    "word": "grandmother",
+    "meaning": "中国人；汉语"
+  },
+  {
+    "word": "food",
+    "meaning": "食物"
+  },
+  {
+    "word": "lot",
+    "meaning": "大量;许多"
+  },
+  {
+    "word": "come",
+    "meaning": "来;来到"
+  },
+  {
+    "word": "about",
+    "meaning": "关于"
+  },
+  {
+    "word": "ping-pong",
+    "meaning": "乒乓球运动"
+  },
+  {
+    "word": "wall",
+    "meaning": "墙"
+  },
+  {
+    "word": "whose",
+    "meaning": "谁的"
+  },
+  {
+    "word": "well",
+    "meaning": "嗯;好吧全部的"
+  },
+  {
+    "word": "hour",
+    "meaning": "小时"
+  },
+  {
+    "word": "every",
+    "meaning": "每一;每个"
+  },
+  {
+    "word": "ago",
+    "meaning": "以前"
+  },
+  {
+    "word": "day",
+    "meaning": "一天;白天"
+  },
+  {
+    "word": "family",
+    "meaning": "家庭"
+  },
+  {
+    "word": "week",
+    "meaning": "周"
+  },
+  {
+    "word": "bird",
+    "meaning": "鸟"
+  },
+  {
+    "word": "fish",
+    "meaning": "钓鱼"
+  },
+  {
+    "word": "father",
+    "meaning": "父亲;爸爸"
+  },
+  {
+    "word": "night",
+    "meaning": "夜晚"
+  },
+  {
+    "word": "middle",
+    "meaning": "中间"
+  },
+  {
+    "word": "basketball",
+    "meaning": "篮球"
+  },
+  {
+    "word": "think",
+    "meaning": "思考"
+  },
+  {
+    "word": "football",
+    "meaning": "足球;足球运动"
+  },
+  {
+    "word": "read",
+    "meaning": "读;阅读"
+  },
+  {
+    "word": "happy",
+    "meaning": "快乐的"
+  },
+  {
+    "word": "garden",
+    "meaning": "做园艺工作"
+  },
+  {
+    "word": "eye",
+    "meaning": "眼睛"
+  },
+  {
+    "word": "clever",
+    "meaning": "聪明的"
+  },
+  {
+    "word": "classroom",
+    "meaning": "教室"
+  },
+  {
+    "word": "their",
+    "meaning": "他(她,它)们的"
+  },
+  {
+    "word": "clean",
+    "meaning": "干净的"
+  },
+  {
+    "word": "little",
+    "meaning": "小的;年幼的"
+  },
+  {
+    "word": "ball",
+    "meaning": "球"
+  },
+  {
+    "word": "front",
+    "meaning": "前面"
+  },
+  {
+    "word": "art",
+    "meaning": "艺术;美术"
+  },
+  {
+    "word": "wear",
+    "meaning": "穿;戴"
+  },
+  {
+    "word": "between",
+    "meaning": "在之间"
+  },
+  {
+    "word": "library",
+    "meaning": "图书馆"
+  },
+  {
+    "word": "tall",
+    "meaning": "高的"
+  },
+  {
+    "word": "blackboard",
+    "meaning": "黑板"
+  },
+  {
+    "word": "short",
+    "meaning": "短的;矮的"
+  },
+  {
+    "word": "up",
+    "meaning": "向上"
+  },
+  {
+    "word": "hair",
+    "meaning": "头发"
+  },
+  {
+    "word": "back",
+    "meaning": "后面;背部"
+  },
+  {
+    "word": "long",
+    "meaning": "长的"
+  },
+  {
+    "word": "quiet",
+    "meaning": "安静的"
+  },
+  {
+    "word": "girl",
+    "meaning": "女孩"
+  },
+  {
+    "word": "but",
+    "meaning": "但是"
+  },
+  {
+    "word": "clock",
+    "meaning": "时钟;钟"
+  },
+  {
+    "word": "map",
+    "meaning": "地图"
+  },
+  {
+    "word": "computer",
+    "meaning": "电脑"
+  },
+  {
+    "word": "window",
+    "meaning": "窗户"
+  },
+  {
+    "word": "science",
+    "meaning": "科学"
+  },
+  {
+    "word": "picture",
+    "meaning": "照片;图画"
+  },
+  {
+    "word": "left",
+    "meaning": "左边"
+  },
+  {
+    "word": "famous",
+    "meaning": "著名的"
+  },
+  {
+    "word": "right",
+    "meaning": "右边"
+  },
+  {
+    "word": "table",
+    "meaning": "桌子"
+  },
+  {
+    "word": "today",
+    "meaning": "在今天"
+  },
+  {
+    "word": "always",
+    "meaning": "总是"
+  },
+  {
+    "word": "email",
+    "meaning": "电子邮件"
+  },
+  {
+    "word": "story",
+    "meaning": "故事"
+  },
+  {
+    "word": "answer",
+    "meaning": "回答;答复"
+  },
+  {
+    "word": "then",
+    "meaning": "那时;然后;那么"
+  },
+  {
+    "word": "question",
+    "meaning": "问题"
+  },
+  {
+    "word": "sometimes",
+    "meaning": "有时"
+  },
+  {
+    "word": "way",
+    "meaning": "方式;道路"
+  },
+  {
+    "word": "feel",
+    "meaning": "感觉;觉得"
+  },
+  {
+    "word": "best",
+    "meaning": "最好的"
+  },
+  {
+    "word": "busy",
+    "meaning": "忙碌的;无暇的"
+  },
+  {
+    "word": "because",
+    "meaning": "因为"
+  },
+  {
+    "word": "why",
+    "meaning": "为什么"
+  },
+  {
+    "word": "song",
+    "meaning": "歌曲"
+  },
+  {
+    "word": "dear",
+    "meaning": "亲爱的"
+  },
+  {
+    "word": "tell",
+    "meaning": "告诉"
+  },
+  {
+    "word": "interesting",
+    "meaning": "有趣的"
+  },
+  {
+    "word": "sing",
+    "meaning": "唱歌"
+  },
+  {
+    "word": "subject",
+    "meaning": "学科;科目"
+  },
+  {
+    "word": "learn",
+    "meaning": "学习;得知"
+  },
+  {
+    "word": "fast",
+    "meaning": "快地"
+  },
+  {
+    "word": "fly",
+    "meaning": "飞"
+  },
+  {
+    "word": "watch",
+    "meaning": "注视;观看"
+  },
+  {
+    "word": "cake",
+    "meaning": "蛋糕"
+  },
+  {
+    "word": "hard",
+    "meaning": "困难的"
+  },
+  {
+    "word": "cook",
+    "meaning": "做饭"
+  },
+  {
+    "word": "difficult",
+    "meaning": "困难的"
+  },
+  {
+    "word": "sure",
+    "meaning": "当然;一定"
+  },
+  {
+    "word": "open",
+    "meaning": "打开"
+  },
+  {
+    "word": "easy",
+    "meaning": "容易的"
+  },
+  {
+    "word": "use",
+    "meaning": "使用;利用"
+  },
+  {
+    "word": "take",
+    "meaning": "拍照;拿;取;买下"
+  },
+  {
+    "word": "give",
+    "meaning": "给;送给;供给"
+  },
+  {
+    "word": "park",
+    "meaning": "公园"
+  },
+  {
+    "word": "idea",
+    "meaning": "想法;主意"
+  },
+  {
+    "word": "when",
+    "meaning": "什么时候"
+  },
+  {
+    "word": "listen",
+    "meaning": "听"
+  },
+  {
+    "word": "share",
+    "meaning": "分享;合用;分担"
+  },
+  {
+    "word": "draw",
+    "meaning": "画画"
+  },
+  {
+    "word": "afternoon",
+    "meaning": "下午"
+  },
+  {
+    "word": "half",
+    "meaning": "一半;半"
+  },
+  {
+    "word": "shop",
+    "meaning": "商店"
+  },
+  {
+    "word": "dress",
+    "meaning": "穿衣服"
+  },
+  {
+    "word": "breakfast",
+    "meaning": "早餐"
+  },
+  {
+    "word": "candle",
+    "meaning": "蜡烛"
+  },
+  {
+    "word": "begin",
+    "meaning": "开始"
+  },
+  {
+    "word": "will",
+    "meaning": "将要;会"
+  },
+  {
+    "word": "dinner",
+    "meaning": "正餐;主餐"
+  },
+  {
+    "word": "egg",
+    "meaning": "蛋"
+  },
+  {
+    "word": "early",
+    "meaning": "早的;早期的"
+  },
+  {
+    "word": "juice",
+    "meaning": "果汁"
+  },
+  {
+    "word": "milk",
+    "meaning": "牛奶"
+  },
+  {
+    "word": "ask",
+    "meaning": "询问;请求"
+  },
+  {
+    "word": "candy",
+    "meaning": "糖果"
+  },
+  {
+    "word": "lunch",
+    "meaning": "午餐"
+  },
+  {
+    "word": "drink",
+    "meaning": "饮品"
+  },
+  {
+    "word": "film",
+    "meaning": "电影"
+  },
+  {
+    "word": "card",
+    "meaning": "厚纸片;卡片"
+  },
+  {
+    "word": "lesson",
+    "meaning": "课;一节课"
+  },
+  {
+    "word": "doll",
+    "meaning": "玩偶;玩具娃娃"
+  },
+  {
+    "word": "ice",
+    "meaning": "冰;冰块"
+  },
+  {
+    "word": "eat",
+    "meaning": "吃"
+  },
+  {
+    "word": "birthday",
+    "meaning": "生日"
+  },
+  {
+    "word": "wish",
+    "meaning": "希望;祝愿"
+  },
+  {
+    "word": "month",
+    "meaning": "月份"
+  },
+  {
+    "word": "nurse",
+    "meaning": "护士"
+  },
+  {
+    "word": "gift",
+    "meaning": "礼物"
+  },
+  {
+    "word": "hear",
+    "meaning": "听到"
+  },
+  {
+    "word": "party",
+    "meaning": "聚会"
+  },
+  {
+    "word": "door",
+    "meaning": "门"
+  },
+  {
+    "word": "buy",
+    "meaning": "买"
+  },
+  {
+    "word": "first",
+    "meaning": "第一"
+  },
+  {
+    "word": "two",
+    "meaning": "二"
+  },
+  {
+    "word": "second",
+    "meaning": "第二"
+  },
+  {
+    "word": "three",
+    "meaning": "三"
+  },
+  {
+    "word": "third",
+    "meaning": "第三"
+  },
+  {
+    "word": "four",
+    "meaning": "四"
+  },
+  {
+    "word": "fourth",
+    "meaning": "第四"
+  },
+  {
+    "word": "five",
+    "meaning": "五"
+  },
+  {
+    "word": "fifth",
+    "meaning": "第五"
+  },
+  {
+    "word": "six",
+    "meaning": "六"
+  },
+  {
+    "word": "sixth",
+    "meaning": "第六"
+  },
+  {
+    "word": "seven",
+    "meaning": "七"
+  },
+  {
+    "word": "seventh",
+    "meaning": "第七"
+  },
+  {
+    "word": "eight",
+    "meaning": "八"
+  },
+  {
+    "word": "eighth",
+    "meaning": "第八"
+  },
+  {
+    "word": "nine",
+    "meaning": "九"
+  },
+  {
+    "word": "ninth",
+    "meaning": "第九"
+  },
+  {
+    "word": "tenth",
+    "meaning": "第十"
+  },
+  {
+    "word": "eleven",
+    "meaning": "十一"
+  },
+  {
+    "word": "eleventh",
+    "meaning": "第十一"
+  },
+  {
+    "word": "twelve",
+    "meaning": "十二"
+  },
+  {
+    "word": "twelfth",
+    "meaning": "第十二"
+  },
+  {
+    "word": "thirteen",
+    "meaning": "十三"
+  },
+  {
+    "word": "thirteenth",
+    "meaning": "第十三"
+  },
+  {
+    "word": "fourteen",
+    "meaning": "十四"
+  },
+  {
+    "word": "fourteenth",
+    "meaning": "第十四"
+  },
+  {
+    "word": "fifteen",
+    "meaning": "十五"
+  },
+  {
+    "word": "fifteenth",
+    "meaning": "第十五"
+  },
+  {
+    "word": "sixteen",
+    "meaning": "十六"
+  },
+  {
+    "word": "sixteenth",
+    "meaning": "第十六"
+  },
+  {
+    "word": "seventeen",
+    "meaning": "十七"
+  },
+  {
+    "word": "seventeenth",
+    "meaning": "第十七"
+  },
+  {
+    "word": "eighteen",
+    "meaning": "十八"
+  },
+  {
+    "word": "eighteenth",
+    "meaning": "第十八"
+  },
+  {
+    "word": "nineteen",
+    "meaning": "十九"
+  },
+  {
+    "word": "nineteenth",
+    "meaning": "第十九"
+  },
+  {
+    "word": "twenty",
+    "meaning": "二十"
+  },
+  {
+    "word": "twentieth",
+    "meaning": "第二十"
+  },
+  {
+    "word": "thirty",
+    "meaning": "三十"
+  },
+  {
+    "word": "thirtieth",
+    "meaning": "第三十"
+  },
+  {
+    "word": "forty",
+    "meaning": "四十"
+  },
+  {
+    "word": "fortieth",
+    "meaning": "第四十"
+  },
+  {
+    "word": "fifty",
+    "meaning": "五十"
+  },
+  {
+    "word": "fiftieth",
+    "meaning": "第五十"
+  },
+  {
+    "word": "sixty",
+    "meaning": "六十"
+  },
+  {
+    "word": "sixtieth",
+    "meaning": "第六十"
+  },
+  {
+    "word": "seventy",
+    "meaning": "七十"
+  },
+  {
+    "word": "seventieth",
+    "meaning": "第七十"
+  },
+  {
+    "word": "eighty",
+    "meaning": "八十"
+  },
+  {
+    "word": "eightieth",
+    "meaning": "第八十"
+  },
+  {
+    "word": "ninety",
+    "meaning": "九十"
+  },
+  {
+    "word": "ninetieth",
+    "meaning": "第九十"
+  },
+  {
+    "word": "hundred",
+    "meaning": "百"
+  },
+  {
+    "word": "hundredth",
+    "meaning": "第一百"
+  },
+  {
+    "word": "thousand",
+    "meaning": "千"
+  },
+  {
+    "word": "thousandth",
+    "meaning": "第一千"
+  },
+  {
+    "word": "million",
+    "meaning": "百万"
+  },
+  {
+    "word": "millionth",
+    "meaning": "第一百万"
+  },
+  {
+    "word": "january",
+    "meaning": "一月"
+  },
+  {
+    "word": "july",
+    "meaning": "七月"
+  },
+  {
+    "word": "february",
+    "meaning": "二月"
+  },
+  {
+    "word": "august",
+    "meaning": "八月"
+  },
+  {
+    "word": "march",
+    "meaning": "三月"
+  },
+  {
+    "word": "september",
+    "meaning": "九月"
+  },
+  {
+    "word": "april",
+    "meaning": "四月"
+  },
+  {
+    "word": "october",
+    "meaning": "十月"
+  },
+  {
+    "word": "may",
+    "meaning": "五月"
+  },
+  {
+    "word": "november",
+    "meaning": "十一月"
+  },
+  {
+    "word": "june",
+    "meaning": "六月"
+  },
+  {
+    "word": "december",
+    "meaning": "十二月"
+  },
+  {
+    "word": "monday",
+    "meaning": "星期一"
+  },
+  {
+    "word": "friday",
+    "meaning": "星期五"
+  },
+  {
+    "word": "tuesday",
+    "meaning": "星期二"
+  },
+  {
+    "word": "saturday",
+    "meaning": "星期六"
+  },
+  {
+    "word": "wednesday",
+    "meaning": "星期三"
+  },
+  {
+    "word": "sunday",
+    "meaning": "星期天"
+  },
+  {
+    "word": "thursday",
+    "meaning": "星期四"
+  }
+]
