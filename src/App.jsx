@@ -278,6 +278,11 @@ function App() {
               <div>
                 <p style={{ margin: '5px 0' }}>今日计划：{dailyPlan} 个单词</p>
                 <p style={{ margin: '5px 0' }}>今日已完成：{completedToday} 个单词</p>
+                {completedToday >= dailyPlan && wrongWords.length > 0 && !isDailyGoalCompleted && (
+                  <p style={{ margin: '5px 0', color: '#ff6b6b', fontWeight: 'bold' }}>
+                    要把错题也消灭完才算完成计划哦
+                  </p>
+                )}
               </div>
               <div style={{ textAlign: 'right' }}>
                 <p style={{ margin: '5px 0' }}>总积分：{totalPoints}</p>
@@ -542,9 +547,38 @@ function App() {
             </div>
           ) : currentWord ? (
             <div style={{ textAlign: 'center', padding: '20px' }}>
-              <h2 style={{ fontSize: '32px', marginBottom: '30px' }}>
-                {currentWord.word}
-              </h2>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '30px' }}>
+                <h2 style={{ fontSize: '32px', marginRight: '10px' }}>
+                  {currentWord.word}
+                </h2>
+                <button 
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '20px',
+                    cursor: 'pointer',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                  onClick={() => {
+                    // 防止多次点击重叠发音
+                    speechSynthesis.cancel();
+                    
+                    const utterance = new SpeechSynthesisUtterance(currentWord.word);
+                    utterance.lang = 'en-US'; // 设为美式英语
+                    utterance.rate = 1.0; // 语速（1.0 正常）
+                    utterance.pitch = 1.0; // 音调
+                    
+                    speechSynthesis.speak(utterance);
+                  }}
+                >
+                  🎧
+                </button>
+              </div>
               <div>
                 {options.map((option, index) => (
                   <button

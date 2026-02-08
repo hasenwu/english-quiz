@@ -66,8 +66,6 @@ const useQuizLogic = (wordsData) => {
       // 从错题中随机选择一个
       const randomIndex = Math.floor(Math.random() * wrongWords.length);
       nextWord = wrongWords[randomIndex];
-      // 从错题列表中移除
-      setWrongWords(prev => prev.filter((_, index) => index !== randomIndex));
       // 重置计数
       setWordCountSinceWrong(0);
     }
@@ -101,7 +99,6 @@ const useQuizLogic = (wordsData) => {
     else if (wrongWords.length > 0) {
       const randomIndex = Math.floor(Math.random() * wrongWords.length);
       nextWord = wrongWords[randomIndex];
-      setWrongWords(prev => prev.filter((_, index) => index !== randomIndex));
       setWordCountSinceWrong(0);
     }
 
