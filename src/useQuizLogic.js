@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react';
 
+// 题型常量
+export const QUESTION_TYPES = {
+  SPELL: 'spell',
+  FILL: 'fill',
+  CHINESE_TO_ENGLISH: 'chineseToEnglish',
+  MEANING_TO_WORD: 'meaningToWord'
+};
+
 const useQuizLogic = (wordsData) => {
   // 状态管理
   const [mainQueue, setMainQueue] = useState([]);
   const [reviewQueue, setReviewQueue] = useState([]);
-  const [retryBuffer, setRetryBuffer] = useState([]); // 临时用于显示
-  const [wrongWords, setWrongWords] = useState([]); // 记录错题
-  const [unfamiliarWords, setUnfamiliarWords] = useState([]); // 记录不熟练单词
-  const [wordCountSinceWrong, setWordCountSinceWrong] = useState(0); // 记录答错后已答单词数
+  const [retryBuffer, setRetryBuffer] = useState([]); // 错题本
   const [currentWord, setCurrentWord] = useState(null);
+  const [currentQuestionType, setCurrentQuestionType] = useState(null);
+  const [currentQuestionData, setCurrentQuestionData] = useState(null);
   const [options, setOptions] = useState([]);
   const [answered, setAnswered] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -16,18 +23,20 @@ const useQuizLogic = (wordsData) => {
   const [wrongCount, setWrongCount] = useState(0);
   const [newWordCount, setNewWordCount] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [questionTypesQueue, setQuestionTypesQueue] = useState([]);
+  const [wordProgress, setWordProgress] = useState({}); // 跟踪每个单词的掌握进度
+  const [masteredWordCount, setMasteredWordCount] = useState(0); // 已掌握的单词数
 
   // 初始化函数
   const initialize = () => {
-    // 打乱单词顺序
-    const shuffledWords = [...wordsData].sort(() => Math.random() - 0.5);
-    setMainQueue(shuffledWords);
+    // 按列表顺序抽取单词，不打乱
+    const orderedWords = [...wordsData];
+    setMainQueue(orderedWords);
     setReviewQueue([]);
     setRetryBuffer([]);
-    setWrongWords([]);
-    setUnfamiliarWords([]);
-    setWordCountSinceWrong(0);
     setCurrentWord(null);
+    setCurrentQuestionType(null);
+    setCurrentQuestionData(null);
     setOptions([]);
     setAnswered(false);
     setSelectedOption(null);
@@ -35,127 +44,239 @@ const useQuizLogic = (wordsData) => {
     setWrongCount(0);
     setNewWordCount(0);
     setIsCompleted(false);
+    setQuestionTypesQueue([]);
+    setWordProgress({});
 
-    // 生成第一题
-    generateQuestion();
+    // 从 localStorage 初始化 masteredWordCount
+    const storedMasteredCount = parseInt(localStorage.getItem('totalMasteredCount') || '0', 10);
+    setMasteredWordCount(storedMasteredCount);
+
+    // 延迟生成第一题，确保状态更新完成
+    setTimeout(() => {
+      generateQuestion();
+    }, 0);
+  };
+
+  // 生成填空题模板
+  const generateFillTemplate = (word) => {
+    const length = word.length;
+    const showLength = Math.ceil(length / 3);
+    const hideLength = length - showLength;
+    return word.substring(0, showLength) + '_'.repeat(hideLength);
   };
 
   // 生成干扰项
-  const generateDistractors = (correctWord) => {
+  const generateDistractors = (correctWord, type) => {
     const otherWords = wordsData.filter(w => w.word !== correctWord.word);
     const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
-    const distractors = shuffledOthers.slice(0, 3).map(w => w.meaning);
-    return distractors;
+    
+    if (type === QUESTION_TYPES.CHINESE_TO_ENGLISH) {
+      return shuffledOthers.slice(0, 3).map(w => w.word);
+    } else {
+      return shuffledOthers.slice(0, 3).map(w => w.meaning);
+    }
+  };
+
+  // 添加到错题本
+  const addToRetryBuffer = (word, failedType) => {
+    setRetryBuffer(prev => {
+      const existingIndex = prev.findIndex(item => item.word.word === word.word);
+      if (existingIndex >= 0) {
+        // 已存在，添加新的错题类型
+        const updated = [...prev];
+        if (!updated[existingIndex].failedTypes.includes(failedType)) {
+          updated[existingIndex].failedTypes.push(failedType);
+        }
+        return updated;
+      } else {
+        // 不存在，创建新条目
+        return [...prev, { word, failedTypes: [failedType] }];
+      }
+    });
+  };
+
+  // 从错题本移除
+  const removeFromRetryBuffer = (word, correctType) => {
+    setRetryBuffer(prev => {
+      const updated = prev
+        .map(item => {
+          if (item.word.word === word.word) {
+            // 移除已答对的题型
+            const newFailedTypes = item.failedTypes.filter(type => type !== correctType);
+            if (newFailedTypes.length > 0) {
+              return { ...item, failedTypes: newFailedTypes };
+            } else {
+              // 所有题型都答对了，返回null表示移除
+              return null;
+            }
+          }
+          return item;
+        })
+        .filter(Boolean); // 过滤掉null值
+      return updated;
+    });
   };
 
   // 生成新题目
   const generateQuestion = () => {
     // 检查是否完成
-    if (mainQueue.length === 0 && wrongWords.length === 0 && unfamiliarWords.length === 0) {
-      if (wrongCount <= 3) {
-        setIsCompleted(true);
-      }
+    if (mainQueue.length === 0 && retryBuffer.length === 0) {
+      setIsCompleted(true);
       return;
     }
 
     // 选题逻辑
     let nextWord;
+    let isRetry = false;
 
-    // 1. 优先处理错题（当已答5个单词后）
-    if (wrongWords.length > 0 && wordCountSinceWrong >= 5) {
-      // 从错题中随机选择一个
-      const randomIndex = Math.floor(Math.random() * wrongWords.length);
-      nextWord = wrongWords[randomIndex];
-      // 重置计数
-      setWordCountSinceWrong(0);
+    // 1. 优先处理错题
+    if (retryBuffer.length > 0) {
+      const randomIndex = Math.floor(Math.random() * retryBuffer.length);
+      const retryItem = retryBuffer[randomIndex];
+      nextWord = retryItem.word;
+      isRetry = true;
+      
+      // 生成该单词的错题类型队列
+      const failedTypes = [...retryItem.failedTypes];
+      setQuestionTypesQueue(failedTypes.slice(1));
+      
+      // 生成第一题
+      generateQuestionByType(nextWord, failedTypes[0]);
+      return;
     }
     // 2. 从 mainQueue 取
     else if (mainQueue.length > 0) {
       nextWord = mainQueue[0];
       setMainQueue(prev => prev.slice(1));
       setNewWordCount(prev => prev + 1);
-      setWordCountSinceWrong(prev => prev + 1);
-
-      // 每取5个新词，从 reviewQueue 随机抽1个插入到 mainQueue 头部
-      if (newWordCount % 5 === 4 && reviewQueue.length > 0) {
-        const randomIndex = Math.floor(Math.random() * reviewQueue.length);
-        const reviewWord = reviewQueue[randomIndex];
-        setMainQueue(prev => [reviewWord, ...prev]);
-      }
-    }
-    // 3. 若 mainQueue 空了，从 unfamiliarWords 取
-    else if (unfamiliarWords.length > 0) {
-      nextWord = unfamiliarWords[0];
-      setUnfamiliarWords(prev => prev.slice(1));
-      setWordCountSinceWrong(prev => prev + 1);
-    }
-    // 4. 若 unfamiliarWords 也空了，从 reviewQueue 取
-    else if (reviewQueue.length > 0) {
-      nextWord = reviewQueue[0];
-      setReviewQueue(prev => prev.slice(1));
-      setWordCountSinceWrong(prev => prev + 1);
-    }
-    // 5. 若都空了，从 wrongWords 取（强制处理错题）
-    else if (wrongWords.length > 0) {
-      const randomIndex = Math.floor(Math.random() * wrongWords.length);
-      nextWord = wrongWords[randomIndex];
-      setWordCountSinceWrong(0);
-    }
-
-    if (nextWord) {
-      // 生成干扰项
-      const distractors = generateDistractors(nextWord);
       
-      // 合并选项并打乱顺序
-      const allOptions = [nextWord.meaning, ...distractors];
-      const shuffledOptions = [...allOptions].sort(() => Math.random() - 0.5);
+      // 生成所有题型队列
+      const allTypes = [QUESTION_TYPES.CHINESE_TO_ENGLISH, QUESTION_TYPES.MEANING_TO_WORD, QUESTION_TYPES.FILL, QUESTION_TYPES.SPELL];
+      setQuestionTypesQueue(allTypes.slice(1));
       
-      setCurrentWord(nextWord);
-      setOptions(shuffledOptions);
-      setAnswered(false);
-      setSelectedOption(null);
+      // 生成第一题
+      generateQuestionByType(nextWord, allTypes[0]);
+      return;
+    }
+  };
+
+  // 根据题型生成题目
+  const generateQuestionByType = (word, type) => {
+    setCurrentWord(word);
+    setCurrentQuestionType(type);
+    setAnswered(false);
+    setSelectedOption(null);
+
+    switch (type) {
+      case QUESTION_TYPES.SPELL:
+      case QUESTION_TYPES.FILL:
+        setOptions([]);
+        setCurrentQuestionData({
+          template: type === QUESTION_TYPES.FILL ? generateFillTemplate(word.word) : null
+        });
+        break;
+      case QUESTION_TYPES.CHINESE_TO_ENGLISH:
+        // 生成干扰项
+        const chineseDistractors = generateDistractors(word, type);
+        const chineseOptions = [word.word, ...chineseDistractors].sort(() => Math.random() - 0.5);
+        setOptions(chineseOptions);
+        setCurrentQuestionData(null);
+        break;
+      case QUESTION_TYPES.MEANING_TO_WORD:
+        // 生成干扰项
+        const meaningDistractors = generateDistractors(word, type);
+        const meaningOptions = [word.meaning, ...meaningDistractors].sort(() => Math.random() - 0.5);
+        setOptions(meaningOptions);
+        setCurrentQuestionData(null);
+        break;
     }
   };
 
   // 处理用户作答
-  const handleAnswer = (option) => {
-    if (!answered && currentWord) {
-      setSelectedOption(option);
+  const handleAnswer = (answer) => {
+    if (!answered && currentWord && currentQuestionType) {
+      setSelectedOption(answer);
       setAnswered(true);
 
-      const isCorrect = option === currentWord.meaning;
+      let isCorrect = false;
+
+      switch (currentQuestionType) {
+        case QUESTION_TYPES.SPELL:
+          isCorrect = answer.toLowerCase() === currentWord.word.toLowerCase();
+          break;
+        case QUESTION_TYPES.FILL:
+          // 生成完整答案
+          const template = currentQuestionData.template;
+          const visibleLength = template.indexOf('_');
+          const expectedAnswer = currentWord.word.substring(visibleLength);
+          isCorrect = answer.toLowerCase() === expectedAnswer.toLowerCase();
+          break;
+        case QUESTION_TYPES.CHINESE_TO_ENGLISH:
+          isCorrect = answer === currentWord.word;
+          break;
+        case QUESTION_TYPES.MEANING_TO_WORD:
+          isCorrect = answer === currentWord.meaning;
+          break;
+      }
 
       if (isCorrect) {
-        // 答对 → 移入 reviewQueue
-        setReviewQueue(prev => [...prev, currentWord]);
         setCorrectCount(prev => prev + 1);
-        
-        // 检查是否是第二次答对（从错题本中移除并加入不熟练单词列表）
-        if (wrongWords.some(w => w.word === currentWord.word)) {
-          // 从错题本移除
-          setWrongWords(prev => prev.filter(w => w.word !== currentWord.word));
-          // 加入不熟练单词列表
-          if (!unfamiliarWords.some(w => w.word === currentWord.word)) {
-            setUnfamiliarWords(prev => [...prev, currentWord]);
+
+        // 更新单词掌握进度
+        setWordProgress(prev => {
+          const currentTypes = prev[currentWord.word] || [];
+          if (!currentTypes.includes(currentQuestionType)) {
+            const newTypes = [...currentTypes, currentQuestionType];
+            // 检查是否完成所有题型
+            if (newTypes.length === Object.keys(QUESTION_TYPES).length) {
+              const newTotal = masteredWordCount + 1;
+              setMasteredWordCount(newTotal);
+              localStorage.setItem('totalMasteredCount', newTotal.toString());
+            }
+            return { ...prev, [currentWord.word]: newTypes };
           }
-        }
+          return prev;
+        });
+
+        removeFromRetryBuffer(currentWord, currentQuestionType);
       } else {
-        // 答错 → 添加到错题列表，5个单词后再重测
         setWrongCount(prev => prev + 1);
-        // 检查是否已在错题列表中
-        if (!wrongWords.some(w => w.word === currentWord.word)) {
-          setWrongWords(prev => [...prev, currentWord]);
-        }
+        addToRetryBuffer(currentWord, currentQuestionType);
       }
 
       // 0.7秒后自动进入下一题
-      setTimeout(generateQuestion, 700);
+      setTimeout(() => {
+        // 检查是否有下一个题型
+        if (questionTypesQueue.length > 0) {
+          const [nextType, ...remainingTypes] = questionTypesQueue;
+          setQuestionTypesQueue(remainingTypes);
+          generateQuestionByType(currentWord, nextType);
+        } else {
+          // 该单词的所有题型都已完成，取下一个单词
+          generateQuestion();
+        }
+      }, 700);
+
+      return isCorrect;
+    }
+    return false;
+  };
+
+  // 播放发音
+  const playPronunciation = (text) => {
+    if ('speechSynthesis' in window) {
+      speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      speechSynthesis.speak(utterance);
     }
   };
 
   // 判断是否完成
   const checkCompletion = () => {
-    return mainQueue.length === 0 && wrongWords.length === 0 && unfamiliarWords.length === 0 && wrongCount <= 3;
+    return mainQueue.length === 0 && retryBuffer.length === 0;
   };
 
   // 初始化
@@ -167,20 +288,27 @@ const useQuizLogic = (wordsData) => {
 
   return {
     currentWord,
+    currentQuestionType,
+    currentQuestionData,
     options,
     answered,
     selectedOption,
     correctCount,
     wrongCount,
     isCompleted,
+    masteredWordCount, // 导出已掌握的单词数
     handleAnswer,
     generateQuestion,
     initialize,
     mainQueue,
     reviewQueue,
     retryBuffer,
-    wrongWords,
-    unfamiliarWords
+    questionTypesQueue,
+    playPronunciation,
+    addToRetryBuffer,
+    removeFromRetryBuffer,
+    generateFillTemplate,
+    QUESTION_TYPES
   };
 };
 
